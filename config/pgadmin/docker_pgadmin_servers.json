@@ -1,0 +1,24 @@
+{
+    "Servers": {
+      "1": {
+        "Name": "postgres-source",
+        "Group": "Servers",
+        "Port": 5432,
+        "Username": "root",
+        "Host": "postgres-source",
+        "SSLMode": "prefer",
+        "MaintenanceDB": "postgres",
+        "PassFile": "/tmp/pgpassfile"
+      },
+      "2": {
+        "Name": "postgresql-sink",
+        "Group": "Servers",
+        "Port": 5432,
+        "Username": "root",
+        "Host": "postgresql-sink",
+        "SSLMode": "prefer",
+        "MaintenanceDB": "postgres",
+        "PassFile": "/tmp/pgpassfile"
+      }      
+    }
+  }

@@ -1,0 +1,27 @@
+version: '3.1'
+
+# Main DB services
+# PostgresQL
+
+services:
+  sb-pg:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: my-pg
+    networks:
+      - my_db
+    environment:
+      POSTGRES_USER: my_user
+      POSTGRES_DB: my_db
+      POSTGRES_PASSWORD: my_pass
+
+      DB_NAME_1: my_db_1
+      DB_USER_1: my_user
+
+      DB_NAME_2: my_db_2
+      DB_USER_2: my_user
+    ports:
+      - 5432:5432
+    volumes:
+      - ../db-data/postgres:/var/lib/postgresql/data
