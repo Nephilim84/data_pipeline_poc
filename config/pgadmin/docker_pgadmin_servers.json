@@ -11,11 +11,11 @@
         "PassFile": "/tmp/pgpassfile"
       },
       "2": {
-        "Name": "postgresql-sink",
+        "Name": "postgres-sink",
         "Group": "Servers",
         "Port": 5432,
         "Username": "root",
-        "Host": "postgresql-sink",
+        "Host": "postgres-sink",
         "SSLMode": "prefer",
         "MaintenanceDB": "postgres",
         "PassFile": "/tmp/pgpassfile"
