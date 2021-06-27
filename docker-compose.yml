@@ -107,16 +107,16 @@ services:
       - ./work:/home/jovyan/work
       - ./config/jupyter/jupyter-config.json:/home/jovyan/.jupyter/jupyter_notebook_config.json
       #- ./config:/home/jovyan/.jupyter/config      
-  rstudio:
-    container_name: rstudio    
-    restart: always
-    image: rocker/tidyverse
-    ports:
-      - 9787:9787
-    environment:
-      - PASSWORD=rstudio1805 # USERNAME : rstudio
-    volumes:
-      - ./data/rstudio
+ # rstudio:
+ #   container_name: rstudio    
+ #   restart: always
+ #   image: rocker/tidyverse
+ #   ports:
+ #     - 9787:9787
+ #   environment:
+ #     - PASSWORD=rstudio1805 # USERNAME : rstudio
+ #   volumes:
+ #     - ./data/rstudio
 
 # ========================================================================== #
 # Kafka #
@@ -152,11 +152,11 @@ services:
     depends_on:
       - kafka
     ports:
-      - "8081:8081"
+      - "18081:18081"
     environment:
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'kafka:29092'
       SCHEMA_REGISTRY_HOST_NAME: confluent-registry
-      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:18081
   
   # Confluent connect
   # https://docs.confluent.io/platform/current/connect/index.html
@@ -185,8 +185,8 @@ services:
       CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: 1
       CONNECT_STATUS_STORAGE_TOPIC: connect-avro-status
       CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: 1
-      CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://confluent-registry:8081
-      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://confluent-registry:8081
+      CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://confluent-registry:18081
+      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://confluent-registry:18081
       CONNECT_KEY_CONVERTER: io.confluent.connect.avro.AvroConverter
       CONNECT_VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter
       CONNECT_INTERNAL_KEY_CONVERTER: org.apache.kafka.connect.json.JsonConverter
