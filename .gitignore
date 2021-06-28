@@ -1,2 +1,4 @@
 logs/neo4j/debug.log
 
+.DS_Store
+logs/neo4j/debug.log
